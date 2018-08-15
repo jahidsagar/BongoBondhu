@@ -28,14 +28,6 @@ public class MainActivity extends AppCompatActivity {
         CustomAdapter customAdapter = new CustomAdapter(this ,mujib_speech , speech_description);
         listView.setAdapter(customAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String s = mujib_speech[position];
-                Toast.makeText(MainActivity.this,s,Toast.LENGTH_SHORT).show();
-            }
-        });
-
     }
 
 }

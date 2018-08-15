@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CustomAdapter extends BaseAdapter {
     Context context;
@@ -57,6 +58,19 @@ public class CustomAdapter extends BaseAdapter {
         description.setText(speech_description[position]);
         image_right.setImageResource(R.drawable.play);
 
+        image_right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context,"hello",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context,"hello hi",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return  convertView;
     }
