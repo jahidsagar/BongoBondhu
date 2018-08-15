@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BongoBondhu</string>
+    <string-array name="speech_name">
+        <item>71 speech</item>
+        <item>rececourse speech</item>
+        <item>cadet academy speech</item>
+        <item>bakshal speech</item>
+    </string-array>
+    <string-array name="speech_description">
+        <item>something yes</item>
+        <item>rececourse hoite pare</item>
+        <item>dangereous</item>
+        <item>aweful speech</item>
+    </string-array>
+</resources>
