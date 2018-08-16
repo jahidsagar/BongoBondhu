@@ -1,21 +1,40 @@
 package com.example.sagar.bongobondhu;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static java.lang.System.exit;
+
 public class CustomAdapter extends BaseAdapter {
     Context context;
     String[] mujib_speech , speech_description;
     private LayoutInflater inflater;
+
+    static boolean play_state = false;
+    static ImageButton for_pause;
+    static int id = -1;
+
+    MediaPlayer mediaPlayer;
+    private int[] song = {
+            R.raw.bakshal_noy,
+            R.raw.march_7 ,
+            R.raw.scout_vaider_uddeshhe ,
+            R.raw.shason_kora_tari_saje ,
+            R.raw.shromik_somporkito ,
+            R.raw.jodi_raat_pohale_suna_jeto
+    };
 
     CustomAdapter(Context context , String[] mujib_speech ,String[] speech_description){
         this.context = context;
@@ -66,9 +85,33 @@ public class CustomAdapter extends BaseAdapter {
             public void onClick(View v) {
 //                Toast.makeText(context,"hello",Toast.LENGTH_SHORT).show();
                 MujibSpeech mujibSpeech = new MujibSpeech(position , context);
-                boolean bool = mujibSpeech.Play();
-                if (bool == true){
+
+                if (play_state == true && id == position){
+                    mujibSpeech.Stop();
+                    for_pause.setImageResource(R.drawable.play);
+                    play_state = false;
+                    id = -1;
+                }else {
+//                    Log.d("prev", "onClick: "+id);
+                    id = position;
+//                    Log.d("next", "onClick: "+id);
+                }
+
+                if (play_state == true && id != -1){
+                    mujibSpeech.Stop();
+                    for_pause.setImageResource(R.drawable.play);
+                    play_state = false;
+
+                }
+
+
+                if (id == position){
+                    play_state = mujibSpeech.Play();
+                }
+
+                if (play_state == true && id != -1){
                     button_right.setImageResource(R.drawable.pause);
+                    for_pause = button_right;
                 }
             }
         });

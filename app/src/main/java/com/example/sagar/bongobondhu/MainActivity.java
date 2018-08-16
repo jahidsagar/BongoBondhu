@@ -34,6 +34,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //until throw the activity this music player runs
+        //we have to fix this issue
+        //not working this method
+        MujibSpeech.Stop();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.option_menu,menu);
