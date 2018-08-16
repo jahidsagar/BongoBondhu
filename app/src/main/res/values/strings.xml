@@ -1,15 +1,19 @@
 <resources>
     <string name="app_name">BongoBondhu</string>
     <string-array name="speech_name">
-        <item>71 speech</item>
-        <item>rececourse speech</item>
-        <item>cadet academy speech</item>
-        <item>bakshal speech</item>
+        <item>Bakshal Noy</item>
+        <item>March 7</item>
+        <item>Scout Vaider Uddeshhe</item>
+        <item>Shashon kora tari saje</item>
+        <item>Shromik Somporkito</item>
+        <item>Jodi Rat Pohal </item>
     </string-array>
     <string-array name="speech_description">
         <item>something yes</item>
         <item>rececourse hoite pare</item>
         <item>dangereous</item>
         <item>aweful speech</item>
+        <item>aweful speech</item>
+        <item>bangla song</item>
     </string-array>
 </resources>

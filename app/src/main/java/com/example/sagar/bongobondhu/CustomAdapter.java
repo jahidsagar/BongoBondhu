@@ -40,7 +40,7 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null){
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_layout,parent,false);
@@ -50,27 +50,39 @@ public class CustomAdapter extends BaseAdapter {
         ImageView imageView = convertView.findViewById(R.id.image_left);
         TextView name = convertView.findViewById(R.id.sound_name);
         TextView description = convertView.findViewById(R.id.sound_description);
-        ImageButton image_right = convertView.findViewById(R.id.image_right);
+        final ImageButton button_right = convertView.findViewById(R.id.image_right);
 
         //set the text and images to all views
         imageView.setImageResource(R.drawable.music_player);
         name.setText(mujib_speech[position]);
         description.setText(speech_description[position]);
-        image_right.setImageResource(R.drawable.play);
+        button_right.setImageResource(R.drawable.play);
 
-        image_right.setOnClickListener(new View.OnClickListener() {
+        /*
+        * set the play button listener
+        */
+        button_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"hello",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context,"hello",Toast.LENGTH_SHORT).show();
+                MujibSpeech mujibSpeech = new MujibSpeech(position , context);
+                boolean bool = mujibSpeech.Play();
+                if (bool == true){
+                    button_right.setImageResource(R.drawable.pause);
+                }
             }
         });
 
+        /*
+         * set the item click listener
+         */
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context,"hello hi",Toast.LENGTH_SHORT).show();
             }
         });
+
 
         return  convertView;
     }

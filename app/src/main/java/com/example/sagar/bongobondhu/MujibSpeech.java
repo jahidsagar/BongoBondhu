@@ -1,20 +1,44 @@
 package com.example.sagar.bongobondhu;
 
-//no need this class , this will be used for different purpose
+/*
+ * use for play the speech / song using the index value
+ */
+
+import android.content.Context;
+import android.media.MediaPlayer;
+import android.widget.Button;
+
+import java.util.ConcurrentModificationException;
 
 public class MujibSpeech {
-//    String[] mujib_speech , speech_description;
-//
-//    MujibSpeech(String[] mujib_speech ,String[] speech_description){
-//        this.mujib_speech = mujib_speech;
-//        this.speech_description = speech_description;
-//    }
-//
-//    public String[] getMujib_speech() {
-//        return mujib_speech;
-//    }
-//
-//    public String[] getSpeech_description() {
-//        return speech_description;
-//    }
+    private int[] song = {
+            R.raw.bakshal_noy,
+            R.raw.march_7 ,
+            R.raw.scout_vaider_uddeshhe ,
+            R.raw.shason_kora_tari_saje ,
+            R.raw.shromik_somporkito ,
+            R.raw.jodi_raat_pohale_suna_jeto
+    };
+
+    private Button pause_play;
+    private int Store_index;
+    private boolean bool_play , bool_stop;
+    MediaPlayer mediaPlayer;
+    Context context;
+
+    public MujibSpeech(int Store_index , Context context){
+        this.Store_index = Store_index;
+        this.context = context;
+    }
+
+    public boolean Play(){
+        int id = song[Store_index];
+        mediaPlayer = MediaPlayer.create(context,id);
+        mediaPlayer.start();
+        return bool_play;
+    }
+
+    public boolean Stop(){
+        return bool_stop;
+    }
 }
