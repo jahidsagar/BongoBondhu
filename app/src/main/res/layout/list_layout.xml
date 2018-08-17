@@ -2,24 +2,27 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="60dp"
+    android:weightSum="6"
     >
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:id="@+id/image_left"
         android:src="@drawable/music_player"
-        android:scaleType="fitCenter"/>
+        android:scaleType="fitCenter"
+        android:layout_weight="1"/>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_weight="2"
+        android:layout_weight="4"
         android:weightSum="2"
         android:orientation="vertical"
         android:padding="3dp"
-        android:id="@+id/linear_inside">
+        android:id="@+id/linear_inside"
+        >
 
         <TextView
             android:layout_width="match_parent"
@@ -40,9 +43,10 @@
     </LinearLayout>
 
     <ImageButton
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:src="@drawable/play"
         android:id="@+id/image_right"
+        android:layout_weight="1"
         />
 </LinearLayout>

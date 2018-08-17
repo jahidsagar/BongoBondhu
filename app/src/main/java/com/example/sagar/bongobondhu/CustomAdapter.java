@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.Filter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,16 +26,6 @@ public class CustomAdapter extends BaseAdapter {
     static boolean play_state = false;
     static ImageButton for_pause;
     static int id = -1;
-
-    MediaPlayer mediaPlayer;
-    private int[] song = {
-            R.raw.bakshal_noy,
-            R.raw.march_7 ,
-            R.raw.scout_vaider_uddeshhe ,
-            R.raw.shason_kora_tari_saje ,
-            R.raw.shromik_somporkito ,
-            R.raw.jodi_raat_pohale_suna_jeto
-    };
 
     CustomAdapter(Context context , String[] mujib_speech ,String[] speech_description){
         this.context = context;
@@ -129,4 +120,7 @@ public class CustomAdapter extends BaseAdapter {
 
         return  convertView;
     }
+
+
+
 }
